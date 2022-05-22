@@ -5,6 +5,7 @@ set relativenumber number
 if !1 | finish | endif
 
 set nocompatible
+set mouse=nvih
 syntax enable
 set encoding=utf-8
 set title
@@ -69,6 +70,22 @@ endif
 runtime ./maps.vim
 "}}}
 
+" ALE linter/formatter
+let b:ale_fixers = {
+        \ 'javascript': ['prettier', 'eslint'],
+        \ 'typescript': ['prettier', 'eslint'],
+        \ 'typescript-react': ['prettier', 'eslint'],
+        \ 'jsx': ['prettier', 'eslint']
+        \}
+
+" --- Neomake, Running Async programs
+" Full config: when writing or reading a buffer, and on changes in insert and
+" normal mode (after 500ms; no delay when writing).
+call neomake#configure#automake('nrwi', 500)
+
 command! Scratch lua require'tools'.makeScratch()
 command! CallCScope lua require'tools'.callCScope()
+
+" Require Main Lua Configurations
+lua require('config')
 
