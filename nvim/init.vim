@@ -4,6 +4,9 @@ scriptencoding utf-8
 set relativenumber number
 if !1 | finish | endif
 
+set hidden
+set exrc
+set incsearch
 set nocompatible
 set mouse=nvih
 syntax enable
@@ -13,12 +16,28 @@ set autoindent
 set background=dark
 set showcmd
 set hlsearch
-set cmdheight=1
+set cmdheight=2
 set laststatus=2
 set scrolloff=10
-set expandtab
 set shell=fish
 set backupskip=/tmp/*,/private/tmp/*
+set termguicolors
+
+" Indentation
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+
+" Backup
+set nobackup
+set noswapfile
+set undofile
+set undodir=~/.vim/undodir
+
+" Color column
+set colorcolumn=80
+set signcolumn=yes
 
 if has('nvim')
 	set inccommand=split
