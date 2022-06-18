@@ -2,6 +2,8 @@ autocmd!
 scriptencoding utf-8
 
 set relativenumber number
+let g:netrw_bufsettings = 'noma nomod nu nowrap ro nobl'
+
 if !1 | finish | endif
 
 set hidden
