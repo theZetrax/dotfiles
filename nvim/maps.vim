@@ -44,3 +44,21 @@ nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <leader>xx <cmd>Texplore<cr>
 nnoremap <leader>cx <cmd>Explore<cr>
 
+" Selecting a Completion using Ctrl-y or Tab
+inoremap <expr> <TAB> pumvisible() ? "<C-y>" : "<TAB>"
+
+" Git Fugitive
+nnoremap <leader>lg <cmd>G log %<cr>
+nnoremap <leader>ld <cmd>G diff %<cr>
+nnoremap <leader>Lg <cmd>G log<cr>
+nnoremap <leader>Ld <cmd>G diff<cr>
+
+" Buffer Movement
+" SEE: https://joshldavis.com/2014/04/05/vim-tab-madness-buffers-vs-tabs/
+set hidden
+nnoremap <leader>t :enew<CR> " Create a new buffer and open that buffer
+nnoremap <leader>l :bnext<CR> " Move to Prev. Buffer
+nnoremap <leader>p :bprevious<CR> " Move to Prev. Buffer
+nnoremap <leader>bq :bd<CR> " Close current buffer move to next
+nnoremap <leader>bqa :bufdo bd<CR> " Close current buffer move to next
+nnoremap <leader>bl :ls<CR> " Show all buffers in a list, and their progress

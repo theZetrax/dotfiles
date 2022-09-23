@@ -8,7 +8,9 @@ EOF
 
 lua << EOF
 local nvim_lsp = require('lspconfig')
-local protocol = require'vim.lsp.protocol'
+local config = require('lspconfig/configs')
+local protocol = require('vim.lsp.protocol')
+
 
 -- Use an on_attach function to only map the following keys 
 -- after the language server attaches to the current buffer
@@ -29,6 +31,9 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<leader>gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', '<leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   buf_set_keymap('n', '<leader>gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  buf_set_keymap('n', '<leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  buf_set_keymap('n', '<leader>gh', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  buf_set_keymap('n', '<leader>ga', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 
 
   -- formatting
@@ -77,6 +82,15 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(
   vim.lsp.protocol.make_client_capabilities()
 )
 
+nvim_lsp.emmet_ls.setup({
+    capabilities = capabilities,
+    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
+})
+
+nvim_lsp.cssls.setup({
+    capabilities = capabilities,
+})
+
 nvim_lsp.flow.setup {
   on_attach = on_attach,
   capabilities = capabilities
@@ -121,13 +135,12 @@ nvim_lsp.diagnosticls.setup {
       typescriptreact = 'eslint',
     },
     formatters = {
-
       eslint_d = {
         command = 'eslint_d',
         rootPatterns = { '.git' },
 
         args = { '--stdin', '--stdin-filename', '%filename', '--fix-to-stdout' },
-        rootPatterns = { '.git' },
+        rootPatterns = { '.git', '.eslintrc.*' },
       },
       prettier = {
         command = 'prettier_d_slim',
@@ -146,7 +159,7 @@ nvim_lsp.diagnosticls.setup {
       typescript = 'prettier',
       typescriptreact = 'prettier',
       json = 'prettier',
-    }
+    },
   }
 }
 
@@ -155,24 +168,44 @@ nvim_lsp.gopls.setup {}
 
 -- Rust
 nvim_lsp.rls.setup {
-        settings = {
-                rust = {
-                        build_on_save = true,
-                        all_features = true,
-                },
+    settings = {
+        rust = {
+            build_on_save = true,
+            all_features = true,
+            },
         },
-}
+    }
 
 -- icon
+local signs = {
+    { name = 'DiagnosticSignError', text = '' },
+    { name = 'DiagnosticSignWarn', text = '' },
+    { name = 'DiagnosticSignHint', text = '' },
+    { name = 'DiagnosticSignInfo', text = '' },
+}
+
+for _, sign in ipairs(signs) do
+    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = '' })
+end
+
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
+vim.lsp.diagnostic.on_publish_diagnostics, {
     underline = true,
+    update_in_insert = true,
+    severity_sort = true,
     -- This sets the spacing and the prefix, obviously.
     virtual_text = {
-      spacing = 4,
-      prefix = ''
+        prefix = ''
+        },
+    float = {
+        focusable = true,
+        style = 'minimal',
+        border = 'rounded',
+        source = 'always',
+        header = '',
+        prefix = '',
+        },
     }
-  }
 )
 
 EOF

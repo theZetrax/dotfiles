@@ -38,4 +38,11 @@ call plug#begin()
 
         " Git Fugitive
         Plug 'tpope/vim-fugitive'
+        Plug 'airblade/vim-gitgutter'
+
+        " Bufferline
+        Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
+
+        " Lualine
+        Plug 'nvim-lualine/lualine.nvim'
 call plug#end()

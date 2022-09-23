@@ -41,6 +41,18 @@ set undodir=~/.vim/undodir
 set colorcolumn=80
 set signcolumn=yes
 
+hi ColorColumn cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
+
+" Alacritty doesn't change the cursor when leaving
+" Neovim, this is the fix.
+" see: https://github.com/neovim/neovim/issues/6005
+" see: https://github.com/neovim/neovim/wiki/FAQ#cursor-style-isnt-restored-after-exiting-or-suspending-and-resuming-nvim
+au VimEnter,VimResume * set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
+  \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
+  \,sm:block-blinkwait175-blinkoff150-blinkon175
+
+au VimLeave,VimSuspend * set guicursor=a:ver90-blinkon0
+
 if has('nvim')
 	set inccommand=split
 endif
@@ -90,14 +102,20 @@ endif
 
 runtime ./maps.vim
 "}}}
+"
+
+" Tabline "{{{
+" --------------------------------------------------------------------
+runtime ./tabline.vim
+" }}}"
 
 " ALE linter/formatter
 let b:ale_fixers = {
-        \ 'javascript': ['prettier', 'eslint'],
-        \ 'typescript': ['prettier', 'eslint'],
-        \ 'typescript-react': ['prettier', 'eslint'],
-        \ 'jsx': ['prettier', 'eslint']
-        \}
+       \ 'javascript': ['prettier', 'eslint'],
+       \ 'typescript': ['prettier', 'eslint'],
+       \ 'typescript-react': ['prettier', 'eslint'],
+       \ 'jsx': ['prettier', 'eslint']
+       \}
 
 " --- Neomake, Running Async programs
 " Full config: when writing or reading a buffer, and on changes in insert and

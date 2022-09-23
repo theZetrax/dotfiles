@@ -1,3 +1,3 @@
 function! tools#loadCscope() abort
-	echo "Welcome"
+	echo "Welcome, Zablon"
 endfunction

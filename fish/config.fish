@@ -1,6 +1,9 @@
-alias code code-insiders
 alias ll "ls -al"
+alias l "ls -l"
 alias vim nvim
+alias diff "diff --color"
+alias fvi fish_vi_key_bindings
+alias fdm fish_default_key_bindings
 
 # NVM default version
 set --universal nvm_default_version lts
@@ -22,3 +25,4 @@ set PATH $PATH "/home/zablon/.cargo/bin"
 set -gx PNPM_HOME "/home/zablon/.local/share/pnpm"
 set -gx PATH "$PNPM_HOME" $PATH
 # pnpm end
+eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
