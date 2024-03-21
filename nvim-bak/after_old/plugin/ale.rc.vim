@@ -1,3 +1,6 @@
+if !exists('g:ale_completion_enabled')
+  finish
+endif
 " Enable completion where available.
 " This setting must be set before ALE is loaded.
 "

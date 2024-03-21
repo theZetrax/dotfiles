@@ -1,8 +1,18 @@
-vim.cmd[[colorscheme nord]]
-vim.g.nord_disable_background = true
-vim.g.nord_contrast = true
-vim.g.nord_borders = true
-vim.g.nord_italic = false
+vim.g.mapleader = " "
+vim.o.number = true
+vim.o.relativenumber = true
+vim.bo.tabstop = 4
+vim.o.termguicolors = true
+vim.opt.cursorline = true
+vim.o.hidden = true
 
--- Load the colorscheme
-require('nord').set()
+vim.cmd [[ setl autoindent ]]
+vim.cmd [[ setl smartindent ]]
+vim.cmd [[ setl expandtab ]]
+vim.cmd [[ set noswapfile ]]
+-- Show relative line on netrw buffer
+vim.cmd [[ let g:netrw_bufsettings = 'noma nomod nu nowrap ro nobl' ]]
+
+-- Load project based config
+vim.o.exrc = true
+vim.cmd [[ set signcolumn=yes ]]

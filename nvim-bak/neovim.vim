@@ -46,7 +46,7 @@ hi ColorColumn cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
 " Alacritty doesn't change the cursor when leaving
 " Neovim, this is the fix.
 " see: https://github.com/neovim/neovim/issues/6005
-" see: https://github.com/neovim/neovim/wiki/FAQ#cursor-style-isnt-restored-after-exiting-or-suspending-and-resuming-nvim
+" see: https://github.com/neovim/neovim/wiki/FAQ#cursor-style-isnt-restored-after-esxiting-or-suspending-and-resuming-nvim
 au VimEnter,VimResume * set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
   \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
   \,sm:block-blinkwait175-blinkoff150-blinkon175
@@ -127,4 +127,5 @@ command! CallCScope lua require'tools'.callCScope()
 
 " Require Main Lua Configurations
 lua require('config')
+
 

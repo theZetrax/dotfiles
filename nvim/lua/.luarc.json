@@ -1,0 +1,43 @@
+{
+    "diagnostics.globals": [
+        "vim",
+        "nvim_list_uis"
+    ],
+    "workspace.library": [
+        "/Users/zablon/.config/nvim",
+        "/Users/zablon/.local/share/nvim/lazy/lazy.nvim",
+        "/Users/zablon/.local/share/nvim/lazy/mini.comment",
+        "/Users/zablon/.local/share/nvim/lazy/LuaSnip",
+        "/Users/zablon/.local/share/nvim/lazy/github-nvim-theme",
+        "/Users/zablon/.local/share/nvim/lazy/nvim-autopairs",
+        "/Users/zablon/.local/share/nvim/lazy/ale",
+        "/Users/zablon/.local/share/nvim/lazy/nvim-tree.lua",
+        "/Users/zablon/.local/share/nvim/lazy/nvim-lspconfig",
+        "/Users/zablon/.local/share/nvim/lazy/indent-blankline.nvim",
+        "/Users/zablon/.local/share/nvim/lazy/mini.indentscope",
+        "/Users/zablon/.local/share/nvim/lazy/cmp-nvim-lsp",
+        "/Users/zablon/.local/share/nvim/lazy/which-key.nvim",
+        "/Users/zablon/.local/share/nvim/lazy/gitsigns.nvim",
+        "/Users/zablon/.local/share/nvim/lazy/mini.surround",
+        "/Users/zablon/.local/share/nvim/lazy/mini.tabline",
+        "/Users/zablon/.local/share/nvim/lazy/auto-session",
+        "/Users/zablon/.local/share/nvim/lazy/lualine.nvim",
+        "/Users/zablon/.local/share/nvim/lazy/mini.cursorword",
+        "/Users/zablon/.local/share/nvim/lazy/mini.nvim",
+        "/Users/zablon/.local/share/nvim/lazy/mason.nvim",
+        "/Users/zablon/.local/share/nvim/lazy/LspUI.nvim",
+        "/Users/zablon/.local/share/nvim/lazy/hop.nvim",
+        "/Users/zablon/.local/share/nvim/lazy/plenary.nvim",
+        "/Users/zablon/.local/share/nvim/lazy/telescope.nvim",
+        "/Users/zablon/.local/share/nvim/lazy/nvim-cmp",
+        "/Users/zablon/.local/share/nvim/lazy/nvim-treesitter",
+        "/opt/homebrew/Cellar/neovim/0.9.0/share/nvim/runtime",
+        "/opt/homebrew/Cellar/neovim/0.9.0/share/nvim/runtime/pack/dist/opt/matchit",
+        "/opt/homebrew/Cellar/neovim/0.9.0/lib/nvim",
+        "/Users/zablon/.local/state/nvim/lazy/readme",
+        "/Users/zablon/.local/share/nvim/lazy/cmp-nvim-lsp/after",
+        "${3rd}/luassert/library",
+        "${3rd}/luassert/library",
+        "${3rd}/luassert/library"
+    ]
+}
